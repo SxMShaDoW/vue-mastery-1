@@ -2,7 +2,8 @@ var app = new Vue({
   el: '#app',
   data: {
     product: "Socks",
-    image: "./assets/vmSocks-green-onWhite.jpg",
+    brand: "Dorian's Awesome",
+    selectedVariant: 0,
     altText: "A pair of socks",
     inventory: 8,
     details: ['80% cotton', '20% polyester', 'Gender-neutral'],
@@ -10,12 +11,14 @@ var app = new Vue({
       {
         variantId: 2234,
         variantColor: 'green',   
-        variantImage: './assets/vmSocks-green-onWhite.jpg'
+        variantImage: './assets/vmSocks-green-onWhite.jpg',
+        variantQuantity: 10
       },
       {
         variantId: 2235,
         variantColor: 'blue',
-        variantImage: './assets/vmSocks-blue-onWhite.jpg'
+        variantImage: './assets/vmSocks-blue-onWhite.jpg',
+        variantQuantity: 0
         
       }
     ],
@@ -30,6 +33,17 @@ var app = new Vue({
     },
     updateProduct(variantImage) {
       this.image = variantImage
+    }
+  },
+  computed: {
+    title() {
+        return this.brand + ' ' + this.product  
+    },
+    image(){
+        return this.variants[this.selectedVariant].variantImage
+    },
+    inStock(){
+        return this.variants[this.selectedVariant].variantQuantity
     }
   }
 })
