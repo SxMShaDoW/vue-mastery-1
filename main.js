@@ -12,7 +12,7 @@ var app = new Vue({
         variantId: 2234,
         variantColor: 'green',   
         variantImage: './assets/vmSocks-green-onWhite.jpg',
-        variantQuantity: 10
+        variantQuantity: 12
       },
       {
         variantId: 2235,
